@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 
 // Components
-import Toast from "../CustomComponents/Toast";
+import { Toast } from "../CustomComponents";
 import LoadingDots from "../Loaders/LoadingDots";
 
 // Hookes 

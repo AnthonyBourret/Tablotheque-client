@@ -6,8 +6,7 @@ import axiosInstance from "../../utils/axiosInstance";
 
 
 // Import Components
-import InputTextSignup from "../CustomComponents/InputTextSignup";
-import Toast from "../CustomComponents/Toast";
+import { InputTextSignup, Toast } from '../CustomComponents';
 
 // Import Hooks
 import useToastDisplay from "../../hooks/useToastDisplay";
@@ -20,7 +19,6 @@ function Signup() {
   const [cookies, setCookie, removeCookie] = useCookies(['userInfo']);
 
   // States
-  const [data, setData] = useState();
   const [isCGUAccepted, setIsCGUAccepted] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>('');

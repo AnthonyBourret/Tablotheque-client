@@ -3,11 +3,11 @@ import { Link, useParams } from "react-router-dom";
 
 // Import Components
 import Header from '../Header/Header';
-import BadgeStyle from "../CustomComponents/BadgeStyle";
 import EditProgressionModal from "../Modals/EditProgressionModal";
 import DeleteSongModal from "../Modals/DeleteSongModal";
 import LoaderSongPage from "../Loaders/LoaderSongPage";
 import Footer from "../Footer/Footer";
+import { BadgeStyle } from '../CustomComponents';
 
 // Import Fetch hook
 import useFetch from "../../hooks/useFetch";

@@ -7,10 +7,10 @@ import useFetch from "../../hooks/useFetch";
 import Header from '../Header/Header';
 import FilterDesktop from '../Filters/FilterDesktop';
 import FilterMobile from "../Filters/FilterMobile";
-import SongCard from '../CustomComponents/SongCard';
 import LoaderCardSong from "../Loaders/LoaderCardSong";
 import NewUserMessage from "./NewUserMessage";
 import Footer from "../Footer/Footer";
+import { SongCard } from "../CustomComponents";
 
 // Import Types
 import { SongProps, SongCardProps } from "../../types/types";

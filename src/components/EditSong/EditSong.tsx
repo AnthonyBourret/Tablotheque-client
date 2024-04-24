@@ -4,13 +4,15 @@ import axiosInstance from "../../utils/axiosInstance";
 
 // Import Components
 import Header from '../Header/Header';
-import EditTextInput from "../CustomComponents/EditTextInput";
-import EditSelectInputValue from "../CustomComponents/EditSelectInputValue";
-import EditSelectInputId from "../CustomComponents/EditSelectInputId";
-import EditSelectStyleInput from "../CustomComponents/EditSelectStyleInput";
-import SelectInputId from "../CustomComponents/SelectInputId";
-import EditTextAreaInput from "../CustomComponents/EditTextAreaInput";
-import Toast from "../CustomComponents/Toast";
+import {
+  EditTextInput,
+  EditSelectInputId,
+  EditSelectInputValue,
+  EditSelectStyleInput,
+  EditTextAreaInput,
+  SelectInputId,
+  Toast
+} from '../CustomComponents';
 import LoadingDots from "../Loaders/LoadingDots";
 import Footer from "../Footer/Footer";
 

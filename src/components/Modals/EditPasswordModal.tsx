@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axiosInstance from "../../utils/axiosInstance";
 
 // Import Components
-import Toast from "../CustomComponents/Toast";
+import { Toast } from "../CustomComponents";
 import LoadingDots from "../Loaders/LoadingDots";
 
 // Import utils

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 
 // Import Components
-import InputTextAuth from "../CustomComponents/InputTextAuth";
-import Toast from "../CustomComponents/Toast";
+import { InputTextAuth, Toast } from '../CustomComponents';
 
 // Import Hook
 import useToastDisplay from "../../hooks/useToastDisplay";

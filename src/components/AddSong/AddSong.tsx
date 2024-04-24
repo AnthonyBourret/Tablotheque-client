@@ -4,11 +4,7 @@ import axiosInstance from "../../utils/axiosInstance";
 
 // Import Components
 import Header from '../Header/Header';
-import TextInput from "../CustomComponents/TextInput";
-import SelectInputValue from "../CustomComponents/SelectInputValue";
-import SelectInputId from "../CustomComponents/SelectInputId";
-import TextAreaInput from "../CustomComponents/TextAreaInput";
-import Toast from "../CustomComponents/Toast";
+import { TextInput, SelectInputId, SelectInputValue, TextAreaInput, Toast } from '../CustomComponents';
 import LoadingDots from "../Loaders/LoadingDots";
 import Footer from "../Footer/Footer";
 

@@ -8,7 +8,6 @@ import formatDate from "../../utils/formatDate";
 
 // Import Components
 import Header from '../Header/Header';
-import EditProfileButton from "../CustomComponents/EditProfileButton";
 import EditAvatarModal from "../Modals/EditAvatarModal";
 import EditMailModal from "../Modals/EditMailModal";
 import EditUsernameModal from "../Modals/EditUsernameModal";
@@ -16,6 +15,7 @@ import DeleteAccountModal from "../Modals/DeleteAccountModal";
 import LoaderProfile from "../Loaders/LoaderProfile";
 import EditPasswordModal from "../Modals/EditPasswordModal";
 import Footer from "../Footer/Footer";
+import { EditProfileButton } from "../CustomComponents";
 
 
 function Profile({ userId }: { userId: number }) {
