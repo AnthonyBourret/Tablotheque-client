@@ -7,6 +7,9 @@ import {
     tuningOptions
 } from "../../utils/InputValues";
 
+// Import Components
+import SelectInputFilter from "./SelectInputFilter";
+
 // Import Types
 import { FilterProps } from "../../types/types";
 
@@ -32,106 +35,51 @@ function FilterMobile({ setFilters }: FilterProps) {
             </div>
 
             {/* On click the filters will be displayed */}
-            <div className="collapse-content flex flex-col items-center gap-4">
+            <form className="collapse-content flex flex-col items-center gap-4 mt-6">
 
                 {/* Difficulty filter */}
-                <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                        <span className="label-text font-semibold">Difficulty</span>
-                    </div>
-                    <select
-                        className="select select-sm select-bordered bg-neutral"
-                        defaultValue=""
-                        onChange={handleChanges}
-                        name="difficulty"
-                    >
-                        <option value="">-</option>
-                        {difficultyOptions.map((option, index) =>
-                            <option key={index}>
-                                {option}
-                            </option>)}
-                    </select>
-                </label>
+                <SelectInputFilter
+                    handleChanges={handleChanges}
+                    selectOptions={difficultyOptions}
+                    inputTitle="Difficulty"
+                    inputName="difficulty"
+                />
 
-                {/* Progression filter */}
-                <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                        <span className="label-text font-semibold">Progression</span>
-                    </div>
-                    <select
-                        className="select select-sm select-bordered bg-neutral"
-                        defaultValue=""
-                        onChange={handleChanges}
-                        name="status"
-                    >
-                        <option value="">-</option>
-                        {progressionOptions.map((option, index) =>
-                            <option key={index}>
-                                {option}
-                            </option>)}
-                    </select>
-                </label>
+                {/* Status filter */}
+                <SelectInputFilter
+                    handleChanges={handleChanges}
+                    selectOptions={progressionOptions}
+                    inputTitle="Status"
+                    inputName="status"
+                />
 
                 {/* Style filter */}
-                <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                        <span className="label-text font-semibold">Style</span>
-                    </div>
-                    <select
-                        className="select select-sm select-bordered bg-neutral"
-                        defaultValue=""
-                        onChange={handleChanges}
-                        name="Styles"
-                    >
-                        <option value="">-</option>
-                        {styleOptions.map((option, index) =>
-                            <option key={index}>
-                                {option}
-                            </option>)}
-                    </select>
-                </label>
+                <SelectInputFilter
+                    handleChanges={handleChanges}
+                    selectOptions={styleOptions}
+                    inputTitle="Style"
+                    inputName="Styles"
+                />
 
                 {/* Tuning filter */}
-                <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                        <span className="label-text font-semibold">Tuning</span>
-                    </div>
-                    <select
-                        className="select select-sm select-bordered bg-neutral"
-                        defaultValue=""
-                        onChange={handleChanges}
-                        name="Tuning"
-                    >
-                        <option value="">-</option>
-                        {tuningOptions.map((option, index) =>
-                            <option key={index}>
-                                {option}
-                            </option>)}
-                    </select>
-                </label>
+                <SelectInputFilter
+                    handleChanges={handleChanges}
+                    selectOptions={tuningOptions}
+                    inputTitle="Tuning"
+                    inputName="Tuning"
+                />
 
                 {/* Capo filter */}
-                <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                        <span className="label-text font-semibold">Capo</span>
-                    </div>
-                    <select
-                        className="select select-sm select-bordered bg-neutral"
-                        defaultValue=""
-                        onChange={handleChanges}
-                        name="capo"
-                    >
-                        <option value="">-</option>
-                        {capoOptions.map((option, index) =>
-                            <option key={index}>
-                                {option}
-                            </option>)}
-                    </select>
-                </label>
+                <SelectInputFilter
+                    handleChanges={handleChanges}
+                    selectOptions={capoOptions}
+                    inputTitle="Capo"
+                    inputName="capo"
+                />
 
                 {/* Reset filters button */}
                 <button
-                    type="button"
+                    type="reset"
                     className="btn btn-md btn-primary w-fit my-4 border border-base-200"
                     onClick={() => setFilters({
                         difficulty: '',
@@ -142,7 +90,7 @@ function FilterMobile({ setFilters }: FilterProps) {
                     })}
                 >
                     Reset filters</button>
-            </div>
+            </form>
         </div>
     );
 };
