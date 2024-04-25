@@ -7,7 +7,6 @@ import Footer from "../Footer/Footer";
 // Import SVG
 import { Logo } from "../../svg";
 
-
 const PrivacyPolicy = () => {
     const navigate = useNavigate();
 

@@ -2,21 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 import * as EmailValidator from 'email-validator';
-import axiosInstance from "../../utils/axiosInstance";
-
+import { axiosInstance } from "../../utils";
+import { useToastDisplay } from "../../hooks";
 
 // Import Components
 import { InputTextSignup, Toast } from '../CustomComponents';
 
-// Import Hooks
-import useToastDisplay from "../../hooks/useToastDisplay";
-
 // Import SVG
-import Logo from '../../svg/Logo';
+import { Logo } from '../../svg';
+
 
 function Signup() {
 
-  const [cookies, setCookie, removeCookie] = useCookies(['userInfo']);
+  const [, setCookie] = useCookies(['userInfo']);
 
   // States
   const [isCGUAccepted, setIsCGUAccepted] = useState<boolean>(false);

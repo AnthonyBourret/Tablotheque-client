@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
-import axiosInstance from "../../utils/axiosInstance";
+import { axiosInstance } from "../../utils";
+import { useToastDisplay } from "../../hooks";
 
 // Components
 import { Toast } from "../CustomComponents";
-import LoadingDots from "../Loaders/LoadingDots";
-
-// Hookes 
-import useToastDisplay from "../../hooks/useToastDisplay";
+import { LoadingDots } from "../Loaders";
 
 function DeleteSongModal() {
     const { id } = useParams();

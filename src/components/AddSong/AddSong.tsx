@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../utils/axiosInstance";
+import { useToastDisplay } from "../../hooks";
+import { handleAddSong } from "../../utils/";
 
 // Import Components
 import Header from '../Header/Header';
 import { TextInput, SelectInputId, SelectInputValue, TextAreaInput, Toast } from '../CustomComponents';
-import LoadingDots from "../Loaders/LoadingDots";
 import Footer from "../Footer/Footer";
-
-// Import Hooks
-import useToastDisplay from "../../hooks/useToastDisplay";
 
 // Import options used in SelectInput
 import {
@@ -20,53 +17,16 @@ import {
   tuningOptions
 } from "../../utils/InputValues";
 
+
 function AddSong({ userId }: { userId: number }) {
   const navigate = useNavigate();
   // States
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | React.JSX.Element>('');
 
-  // Function to submit the form
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    // Check if all the required fields are filled
-    if (
-      data.title === ''
-      || data.artist === ''
-      || data.firstStyle_id === ''
-      || data.tuning_id === ''
-      || data.capo === ''
-      || data.difficulty === ''
-      || data.status === ''
-      || data.tab_link === ''
-    ) {
-      setIsVisible(true);
-      setToastMessage('Please fill all the required fields');
-      return;
-    };
-    // Check if the two styles are different
-    if (data.firstStyle_id === data.secondStyle_id) {
-      setIsVisible(true);
-      setToastMessage('Please choose two different styles');
-      return;
-    };
-
-    const res = await axiosInstance.post(`/user/${userId}/add`, data);
-    if (res.status === 200) {
-      setIsVisible(true);
-      setToastMessage(<LoadingDots />);
-      setTimeout(() => { setToastMessage(res.data) }, 1500);
-      setTimeout(() => {
-        navigate(`/`);
-      }, 2500);
-    } else {
-      setIsVisible(true);
-      setToastMessage('An error occured, please try again');
-      return;
-    };
+  // Handle Submit
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    handleAddSong({ e, userId, setIsVisible, setToastMessage, navigate });
   };
 
   // useEffect to display the toast

@@ -1,17 +1,14 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import axiosInstance from "../../utils/axiosInstance";
+import { axiosInstance } from "../../utils";
+import { useToastDisplay } from "../../hooks";
 
 //Import Components
 import Toast from "./Toast";
-import LoadingDots from "../Loaders/LoadingDots";
+import { LoadingDots } from "../Loaders";
 
 // Import SVG
 import { IconDelete } from "../../svg";
-
-// Import Hooks
-import useToastDisplay from "../../hooks/useToastDisplay";
-
 interface Props {
     label: string,
     inputName: string,
@@ -19,6 +16,7 @@ interface Props {
     disabledText: string,
     options: string[],
 };
+
 
 function EditSelectStyleInput({ label, inputName, value, disabledText, options }: Props) {
 

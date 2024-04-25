@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-
-// Import Fetch hook
-import useFetch from "../../hooks/useFetch";
+import { useFetch } from "../../hooks";
 
 // Import Components
 import Header from '../Header/Header';
 import FilterDesktop from '../Filters/FilterDesktop';
 import FilterMobile from "../Filters/FilterMobile";
-import LoaderCardSong from "../Loaders/LoaderCardSong";
 import NewUserMessage from "./NewUserMessage";
 import Footer from "../Footer/Footer";
+import { LoaderCardSong } from "../Loaders";
 import { SongCard } from "../CustomComponents";
 
 // Import Types
@@ -107,8 +105,6 @@ function HomePage({ userId }: { userId: number }) {
       </div>
       <Footer />
     </div>
-
-
   );
 };
 

@@ -1,14 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 import LogoHeader from './LogoHeader';
 import MenuAvatar from './MenuAvatar';
 
 function NavBarMobile() {
-    const [cookies, setCookie, removeCookie] = useCookies(['userInfo']);
+    const [cookie, setCookie, removeCookie] = useCookies(['userInfo']);
+    const navigate = useNavigate();
 
-    function handleLogout() {
+    async function handleLogout() {
         removeCookie('userInfo', { path: '/' });
+        navigate("/");
     }
     return (
         <div className="sm:hidden flex justify-between items-center w-full bg-neutral bg-opacity-50 backdrop-blur-[10px] z-10 fixed top-0 left-0 px-4 pt-4 pb-2">

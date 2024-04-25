@@ -1,18 +1,16 @@
 import React from 'react';
 import { useCookies } from "react-cookie";
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from "../../utils/axiosInstance";
+import { axiosInstance } from "../../utils";
+import { useToastDisplay } from "../../hooks";
 
 // Components
 import { Toast } from "../CustomComponents";
-import LoadingDots from "../Loaders/LoadingDots";
-
-// Hooks
-import useToastDisplay from "../../hooks/useToastDisplay";
+import { LoadingDots } from "../Loaders";
 
 function DeleteAccountModal({ userId }: { userId: number }) {
 
-    const [cookies, setCookie, removeCookie] = useCookies(['userInfo']);
+    const [cookie, setCookie, removeCookie] = useCookies(['userInfo']);
     const navigate = useNavigate();
 
     // States

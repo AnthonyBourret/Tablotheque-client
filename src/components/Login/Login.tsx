@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
+import { handleLogin } from "../../utils";
+import { useToastDisplay } from "../../hooks";
 
 // Import Components
 import { InputTextAuth, Toast } from '../CustomComponents';
 
-// Import Hook
-import useToastDisplay from "../../hooks/useToastDisplay";
-
 // Import SVG
 import Logo from '../../svg/Logo';
-
-// Import Function
-import handleLogin from "../../utils/handleLogin";
 
 
 function Login() {
 
-  const [cookies, setCookie, removeCookie] = useCookies(['userInfo']);
+  const [, setCookie] = useCookies(['userInfo']);
 
   // States
   const [username, setUsername] = useState('');

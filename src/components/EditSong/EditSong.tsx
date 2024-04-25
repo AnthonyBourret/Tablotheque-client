@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import axiosInstance from "../../utils/axiosInstance";
+import { handleEditSong } from "../../utils/";
+import { useFetch, useToastDisplay } from "../../hooks";
 
 // Import Components
 import Header from '../Header/Header';
+import Footer from "../Footer/Footer";
 import {
   EditTextInput,
   EditSelectInputId,
@@ -13,12 +15,6 @@ import {
   SelectInputId,
   Toast
 } from '../CustomComponents';
-import LoadingDots from "../Loaders/LoadingDots";
-import Footer from "../Footer/Footer";
-
-// Import Fetch hook
-import useFetch from "../../hooks/useFetch";
-import useToastDisplay from "../../hooks/useToastDisplay";
 
 // Import Types
 import { SongProps } from "../../types/types";
@@ -55,61 +51,9 @@ function EditSong() {
   // If there is an error, return null
   if (error) return null;
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget as HTMLFormElement;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    if (data.firstStyle_id === data.secondStyle_id) {
-      setToastMessage("Please choose two different styles");
-      setIsVisible(true);
-      return;
-    };
-
-    if (data.title === ""
-      || data.artist === ""
-      || data.tuning_id === ""
-      || data.capo === ""
-      || data.difficulty === ""
-      || data.status === ""
-      || data.firstStyle_id === ""
-      || data.tab_link === ""
-    ) {
-      setToastMessage("Please fill all the required fields");
-      setIsVisible(true);
-      return;
-    };
-
-    //Request for the song update
-    const resSong = await axiosInstance.patch(`/song/${id}`, {
-      title: data.title,
-      artist: data.artist,
-      tab_link: data.tab_link,
-      lyrics_link: data.lyrics_link,
-      comments: data.comments,
-      difficulty: data.difficulty,
-      status: data.status,
-      capo: data.capo,
-      tuning_id: data.tuning_id
-    })
-    //Request for the style update
-    const resStyle = await axiosInstance.put(`/song/${id}/styles`, {
-      firstStyle_id: data.firstStyle_id,
-      secondStyle_id: data.secondStyle_id
-    });
-    if (resSong.status === 200 && resStyle.status === 200) {
-      setIsVisible(true);
-      setToastMessage(<LoadingDots />);
-      setTimeout(() => { setToastMessage("Song updated succesfully") }, 1500);
-      setTimeout(() => {
-        window.location.href = `/song/${id}`;
-      }, 2500);
-    };
-    if (resSong.status !== 200 || resStyle.status !== 200) {
-      setIsVisible(true);
-      setToastMessage("An error occured, please try again later");
-    };
+  // Handle Submit
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    handleEditSong({ e, id, setToastMessage, setIsVisible });
   };
 
   // UseEffect to display the toast when the song is updated

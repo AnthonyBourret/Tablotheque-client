@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
-import axiosInstance from "../../utils/axiosInstance";
+import { axiosInstance } from "../../utils";
 import LogoHeader from './LogoHeader';
 
 function NavBarDesktop() {
-    const [cookies, setCookie, removeCookie] = useCookies(['userInfo']);
+    const [, removeCookie] = useCookies(['userInfo']);
 
     async function handleLogout() {
         const res = await axiosInstance.get('/logout');

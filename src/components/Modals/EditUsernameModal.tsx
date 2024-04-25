@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axiosInstance from "../../utils/axiosInstance";
+import React, { useState } from 'react';
+import { axiosInstance, reloadPageTimeOut } from "../../utils";
+import { useToastDisplay } from "../../hooks";
 
 // Immport Components
 import { Toast } from "../CustomComponents";
-import LoadingDots from "../Loaders/LoadingDots";
-
-// Import utils
-import useToastDisplay from "../../hooks/useToastDisplay";
-import reloadPageTimeOut from "../../utils/reloadPageTimeOut";
-
+import { LoadingDots } from "../Loaders";
 
 function EditUsernameModal({ userId }: { userId: number }) {
 

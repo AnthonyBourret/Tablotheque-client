@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function EditAvatarModal() {
     return (
@@ -19,7 +19,7 @@ function EditAvatarModal() {
                 <button>close</button>
             </form>
         </dialog>
-    )
+    );
 }
 
-export default EditAvatarModal
+export default EditAvatarModal;

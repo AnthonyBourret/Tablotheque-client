@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
-
-// Import Fetch hook
-import useFetch from "../../hooks/useFetch";
-
-// Import Utils
-import formatDate from "../../utils/formatDate";
+import { useFetch } from "../../hooks";
+import { formatDate } from "../../utils";
 
 // Import Components
 import Header from '../Header/Header';
-import EditAvatarModal from "../Modals/EditAvatarModal";
-import EditMailModal from "../Modals/EditMailModal";
-import EditUsernameModal from "../Modals/EditUsernameModal";
-import DeleteAccountModal from "../Modals/DeleteAccountModal";
-import LoaderProfile from "../Loaders/LoaderProfile";
-import EditPasswordModal from "../Modals/EditPasswordModal";
+import { LoaderProfile } from "../Loaders";
 import Footer from "../Footer/Footer";
 import { EditProfileButton } from "../CustomComponents";
+import { EditAvatarModal, EditMailModal, EditUsernameModal, DeleteAccountModal, EditPasswordModal } from "../Modals";
 
 
 function Profile({ userId }: { userId: number }) {
